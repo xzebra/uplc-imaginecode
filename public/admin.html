@@ -3,15 +3,47 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href=css\admin.css>
   </head>
-  <body style="background-color:white;">>
+  <body style="background-color:white;">
     <div id="navbar">
-      <a href="#home">Usuarios</a>
-      <a href="#news">Incidencias</a>
-      <a href="#contact">Urgencias</a>
+      <a href="admin.html">HOME</a>
+      <a href="subAdmins/users.html">Usuarios</a>
+      <a href="subAdmins/incidencias.html">Incidencias</a>
+      <a href="subAdmins/incendios.html">Incendios</a>
+      <a href="subAdmins/mapa.html">Mapa </a>
     </div>
 
+
+    <div class="emergencia">
+      <h4 class="alert-heading">EMERGENCY!</h4>
+      <p>Que coño ha pasado <br>
+      <a href="mapOne.html"><img src="images/mapIcon.png" width="35em" height="35em"> {{Jorge Manda datos}} </a></p>
+      <hr>
+        <!-- Material inline 1 -->
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="materialInline1">
+          <label class="form-check-label" for="materialInline1">En proceso</label>
+        </div>
+
+        <!-- Material inline 2 -->
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="materialInline2">
+          <label class="form-check-label" for="materialInline2">Aviso a usuarios</label>
+        </div>
+
+        <!-- Material inline 3 -->
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="materialInline3">
+          <label class="form-check-label" for="materialInline3">Ubicacion correcta</label>
+        </div>
+        <!-- Material inline 4 -->
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="materialInline4">
+          <label class="form-check-label" for="materialInline3">Solucionada</label>
+        </div>
+    </div>
 
     <script src="js\admin.js"></script>
   </body>
