@@ -42,5 +42,5 @@ func main() {
 	fmt.Println("running server")
 	http.HandleFunc("/incidencias", handleIncidencias)
 	http.Handle("/", http.FileServer(http.Dir("public")))
-	http.ListenAndServe("localhost:8080", nil)
+	http.ListenAndServe(":" + os.Getenv("PORT"), nil)
 }
