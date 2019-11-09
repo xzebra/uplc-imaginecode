@@ -1,6 +1,6 @@
 /* Style the navbar */
 #navbar {
- overflow: visible;
+ overflow: hidden;
  background-color: red;
 }
 
