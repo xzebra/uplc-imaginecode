@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-       /* Set the size of the div element that contains the map */
-      #map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
-    </style>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/cliente.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h3>My Google Maps Demo</h3>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/escalada.png" width="60" height="60" class="d-inline-block align-top" alt="">
+        <p>GRILLO</p>
+      </a>
+    </nav>
+    <h3><img src="images/mapIcon.png" width="30" height="30"></h3>
     <!--The div element for the map -->
     <div id="map"></div>
     <script>
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
-  var usuario = {lat: 41.6560593, lng: -0.87734};  //luego cambio por abajo
+  var usuario = {lat: 41.683825, lng: -0.885705};  //luego cambio por abajo
   //var usuario = {lat: {{}}, lng: {{}}};
   // The map, centered at Uluru
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: usuario});
+      document.getElementById('map'), {zoom: 15, center: usuario});
   // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: usuario, map: map});
+
+  {{ range .Lista }}
+  var pos = {lat: {{}}, lng: {{}} };
+  var marker = new google.maps.Marker({position: pos, map: map});
 }
+  {{end}}
     </script>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
