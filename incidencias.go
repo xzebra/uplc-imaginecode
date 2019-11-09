@@ -112,3 +112,13 @@ func handleIncidencias(w http.ResponseWriter, r *http.Request) {
 		addIncidencia(w, r)
 	}
 }
+
+func handleMap(w http.ResponseWriter, r *http.Request) {
+	ServeTemplate(w, "map.html", struct {
+		Lista []Incidencia
+	}{
+		Lista: Incidencias,
+	})
+}
+
+
