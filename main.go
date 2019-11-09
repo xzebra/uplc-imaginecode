@@ -1,7 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"text/template"
+	"path/filepath"
 )
 
 func ServeTemplate(w http.ResponseWriter, filename string, data interface{}) {
@@ -17,13 +20,12 @@ func ServeTemplate(w http.ResponseWriter, filename string, data interface{}) {
 	}
 }
 
-func handleIncidencias(w ResponseWriter, r *Request) {
-	ServeTemplate(w, "client_incidence"
-}
-
 func main() {
+	DBInit()
+	defer DB.Close()
+
 	fmt.Println("running server")
-	http.HandleFunc("/incidencias", handleIncidencias)
+	//http.HandleFunc("/incidencias", handleIncidencias)
 	http.Handle("/", http.FileServer(http.Dir("public")))
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe("localhost:8080", nil)
 }
