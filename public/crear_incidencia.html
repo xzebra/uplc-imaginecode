@@ -45,7 +45,7 @@
       <div class="input-group mb-2">
 
         <div class="custom-file">
-          <input type="file" class="custom-file-input" name="file">
+          <input type="file" class="custom-file-input">
           <label class="custom-file-label" for="inputGroupFile01">Sube un archivo</label>
         </div>
       </div>
@@ -55,6 +55,7 @@
 	<script>
 		function interceptar() {
 			document.getElementById("author").value = getCookie("username");
+			console.log("test");
 			return getLocation();
 		}
 
@@ -77,15 +78,18 @@
 		function getLocation() {
 		  if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(posCallback);
+			console.log("sudo polla");
 			  return true;
 		  } else {
+			console.log("fail");
 			  return false;
 		  }
 		}
 
 		function posCallback(position) {
-			document.getElementById("lat").value = position.corrds.latitude;
-			document.getElementById("long").value = position.corrds.longitude;
+			document.getElementById("lat").value = position.coords.latitude;
+			document.getElementById("long").value = position.coords.longitude;
+			console.log(position.coords.latitude);
 		}
 	</script>
   </body>
