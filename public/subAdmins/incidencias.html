@@ -17,40 +17,27 @@
     <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Tipo</th>
         <th scope="col">Usuario</th>
         <th scope="col">Apoyo</th>
         <th scope="col">Descripcion</th>
         <th scope="col">Ubicacion</th>
+        <th scope="col">Fecha</th>
         <th scope="col">Solucionado</th>
       </tr>
     </thead>
     <tbody>
+      {{ range .Lista }}
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Mark</td>
-        <td><a href="mapOne.html">MAPA</a></td>
-        <td>❌</td>
+        <td>{{.Type}}</td>
+        <td>{{.Author}}</td>
+        <td>{{.Apoyo}}</td>
+        <td>{{.Desc}}</td>
+        <td><a href="mapOne.html">{{.Ubicacion}}</a></td>
+        <td>{{.Date}}</td>
+        <td>{{.Estado}}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>❌</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      {{end}}
     </tbody>
   </table>
 

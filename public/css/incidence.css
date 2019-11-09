@@ -1,0 +1,47 @@
+
+.bloque{
+  margin-right: 1em;
+  margin-left: 1em;
+}
+body{
+  background: url(../images/mountain.jpeg);
+}
+
+button{
+  background-color: white !IMPORTANT;
+  box-sizing: inherit !IMPORTANT;
+}
+.navbar-brand{
+  text-align: center;
+  display: flex;
+  margin-top: 1em;
+}
+.navbar-brand>p{
+  text-align: center;
+  font-size: 2.5em !IMPORTANT;
+}
+
+.navbar{
+  border-radius: 10em !IMPORTANT;
+  margin-top: 1em;
+}
+
+.mb-3{
+  margin-top: 5em;
+  margin-right: 1em !IMPORTANT
+}
+
+.bg-light{
+  background-color: inherit !IMPORTANT;
+  box-sizing: inherit !IMPORTANT;
+}/*
+.input-group-prepend{
+  margin-right: inherit !IMPORTANT;
+}
+*/
+input{
+  margin-top: 1em;
+}
+.mb-2{
+  margin-top: 2em;
+}

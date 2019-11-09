@@ -15,3 +15,10 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
+/*
+function check() {
+    if(document.getElementById("materialInline4").checked) {
+
+    }
+}*/

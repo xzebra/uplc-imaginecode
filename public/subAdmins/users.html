@@ -18,9 +18,7 @@
     <table class="table">
     <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">Ubication</th>
       <th scope="col">Mail</th>
       <th scope="col">Incidencias</th>
       <th scope="col">Creación</th>
@@ -28,33 +26,16 @@
     </tr>
   </thead>
   <tbody>
+    {{ range .Lista }}
     <tr>
-      <th scope="row">1</th>
-      <td>Tomas</td>
-      <td><a href="mapOne.html">MAPA</a></td>
-      <td>aaaa@aaa.es</td>
-      <td>7</td>
-      <td>18/8/2015</td>
-      <td>❌</td>
+      <td>{{.Name}}</td>
+      <td>{{.Mail}}</td>
+      <td>{{Incidencia}}</td>
+      <td>{{.Date}}</td>
+      <td>{{Urgency}}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>jorge</td>
-      <td><a href="mapOne.html">MAPA</a></td>
-      <td>aaaa@aaa.es</td>
-      <td>4</td>
-      <td>18/2/2018</td>
-      <td>❌</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Lucas</td>
-      <td><a href="mapOne.html">MAPA</a></td>
-      <td>aaaa@aaa.es</td>
-      <td>8</td>
-      <td>15/8/2019</td>
-      <td>❌</td>
-    </tr>
+    {{end}}
+
   </tbody>
 </table>
 
