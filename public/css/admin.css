@@ -34,3 +34,21 @@
 .sticky + .content {
  padding-top: 60px;
 }
+/*Para meter google maps en la web*/
+
+.map {
+        height: 500px;  /* Tamaño de mapa */
+        width: 100%;  /* The width is the width of the web page */
+       }
+
+.emergencia{
+  margin: 1em;
+  padding: 1em;
+  display: block;
+  border-radius: 20px;
+  background-color: #ff7461;
+}
+
+.form-check {
+  padding-left: 20px !IMPORTANT;
+}
