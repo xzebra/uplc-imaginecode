@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="https://tiles.unwiredmaps.com/js/leaflet-unwired.js"></script>
+
+
   </head>
   <body style="background-color:white;">
     <div id="navbar">
-      <a href="../admin.html">HOME</a>
-      <a href="users.html">Usuarios</a>
-      <a href="incidencias.html">Incidencias</a>
-      <a href="mapAll.html">Mapa</a>
+      <a href="/">HOME</a>
+      <a href="/users">Usuarios</a>
+      <a href="/incidencias">Incidencias</a>
+      <a href="/mapAdmin">Mapa </a>
     </div>
 
     <div id="map"></div>
@@ -39,9 +41,8 @@
       L.control.layers({
         "Streets": streets
       }).addTo(map);
-//      var marker = L.marker([{{.Ubicacion.Lat}}, {{.Ubicacion.Alt}}]).addTo(map);
-      var marker = L.marker([41.683825, -0.885705]).addTo(map);
-
+      {{range .Lista}}
+      var marker = L.marker([{{.Ubicacion.Lat}}, {{.Ubicacion.Alt}}]).addTo(map);
       var popup = L.popup();
 
       function onMapClick(e) {
@@ -51,7 +52,11 @@
       }
 
       map.on('click', onMapClick);;
+
+      {{end}}
     </script>
+
+
 </body>
 </html>
 

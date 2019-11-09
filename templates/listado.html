@@ -13,9 +13,14 @@
     b {
       color: white;
     }
+    table{
+      background-color:  grey;
+      opacity: 80%;
+    }
     .scrollable {
       height:70%;
       overflow:auto;
+
     }
     .home {
       color: white !IMPORTANT;
@@ -40,20 +45,22 @@
 			  <th scope="col">Tipo</th>
 			  <th scope="col">Descripción</th>
 			  <th scope="col">Hora</th>
+        <th scope="col">Mapa</th>
 			</tr>
 		</thead>
-	</table>
   <div class="scrollable">
-    <table>
+    <tbody>
       {{range .Lista}}
         <tr>
           <td>{{.Author}}</td>
           <td>{{.Type}}</td>
           <td>{{.Desc}}</td>
           <td>{{.Date}} </td>
+          <td><a href="/mapOneUsers.html?long={{.Longitud}}&lat={{.Latitud}}"><img src="images/mapIcon.png" width="20" height="20"</a></td>
         </tr>
         {{end}}
-      </table>
+      </tbody>
   </div>
+</table>
 </body>
 </html>
