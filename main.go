@@ -20,12 +20,27 @@ func ServeTemplate(w http.ResponseWriter, filename string, data interface{}) {
 	}
 }
 
+func SendError(w http.ResponseWriter, err string) {
+	ServeTemplate(w, "error.html", struct {
+		Error string
+	}{
+		err,
+	})
+}
+
 func main() {
 	DBInit()
 	defer DB.Close()
 
+	// pre guardar las incidencias y
+	// actualizar en un futuro
+	err := ReadIncidencias()
+	if err != nil {
+		panic(err)
+	}
+
 	fmt.Println("running server")
-	//http.HandleFunc("/incidencias", handleIncidencias)
+	http.HandleFunc("/incidencias", handleIncidencias)
 	http.Handle("/", http.FileServer(http.Dir("public")))
 	http.ListenAndServe("localhost:8080", nil)
 }

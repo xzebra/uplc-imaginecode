@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notificaciones:</title>
+</head>
+<body>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+			  <th scope="col">Autor</th>
+			  <th scope="col">Tipo</th>
+			  <th scope="col">Descripción</th>
+			  <th scope="col">Hora</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{ range .Lista }}	
+			<tr>
+				<td>{{.Author}}</td>
+				<td>{{.Type}}</td>
+				<td>{{.Desc}}</td>
+				<td>{{.Date}}</td>
+			</tr>
+			{{end}}
+		</tbody>
+	</table>
+</body>
+</html>
