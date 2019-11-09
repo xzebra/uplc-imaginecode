@@ -19,14 +19,77 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="https://tiles.unwiredmaps.com/js/leaflet-unwired.js"></script>
+    <style>
+      @font-face {
+        font-family: tilte-font;
+        src: url("/fonts/beautymountains.ttf");
+      }
+
+      * {
+        margin: 0;
+      }
+
+      body {
+        background: url("/images/bg.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+      .title {
+        font-family: tilte-font, Arial;
+        font-size:100px;
+        text-align:center;
+        margin-top: 0.2em;
+      }
+      h1{
+        color: rgb(255, 255, 255) !important;
+      }
+
+      .float-btn {
+        width:60px;
+        height:60px;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+        box-shadow: 2px 2px 3px #999;
+        margin:auto;
+      }
+
+      #map{
+        width: 100%;
+        height: 500px;
+      }
+
+      .login {
+        position:absolute;
+        top:2em;
+        right:2em;
+        color: white;
+      }
+
+      .nueva-incidencia {
+        bottom:2em;
+        right: 2em;
+        background-color:#CC1D00;
+      }
+
+      .lista {
+        bottom:2em;
+        left:2em;
+        background-color:#36af88;
+      }
+
+      .my-float{
+        margin-top:22px;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">
-        <img src="images/escalada.png" width="60" height="60" class="d-inline-block align-top" alt="">
-        <p>GRILLO</p>
-      </a>
-    </nav>
+    <a class="navbar-brand" href="index.html">
+      <h1 class="title"><img src="/images/escalada.png" width="100" height="100"  style="margin-bottom:0.3em;">Grillo</h1>
+    </a>
     <!--The div element for the map -->
     <div id="map"></div>
 
