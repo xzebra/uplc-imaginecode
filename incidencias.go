@@ -54,6 +54,30 @@ func (i Incidencia) Insertar() error {
 
 	Incidencias = append(Incidencias, i)
 
+	_, err = DB.ExecContext(ctx, "UPDATE usuarios SET incidencias = incidencias+1 WHERE username = ?", i.Author)
+	return err
+}
+
+func EliminarIncidencia(id int) error {
+	i := 0
+	for ; i < len(Incidencias); i++ {
+		if Incidencias[i].ID == id {
+			break
+		}
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	
+	_, err := DB.ExecContext(ctx, "DELETE FROM incidencias WHERE id = ?", Incidencias[i].ID)
+	if err != nil { return err }
+
+	_, err = DB.ExecContext(ctx, "UPDATE usuarios SET incidencias = incidencias-1 WHERE id = ?", Incidencias[i].Author)
+	if err != nil { return err }
+
+	copy(Incidencias[i:], Incidencias[i+1:])
+	Incidencias = Incidencias[:len(Incidencias)-1]
+
 	return nil
 }
 
