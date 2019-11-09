@@ -1,6 +1,6 @@
 /* Style the navbar */
 #navbar {
- overflow: hidden;
+ overflow: visible;
  background-color: red;
 }
 
@@ -9,7 +9,7 @@
   font-family: "Arial";
   font-weight: bold;      /*Negrita*/
  float: left;
- display: block;
+ display: flex;
  /*border: 10px;  */      /*Quiero poner putos bordes*/
 /* border-color: grey;*/
  color: white;          /*Color de letra*/

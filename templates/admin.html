@@ -24,18 +24,18 @@
       <a href="/mapOne.html?long={{.Longitud}}&lat={{.Latitud}}"><b>Ubicación:  </b><img src="images/mapIcon.png" width="35em" height="35em"></a></p>
       <hr>
         <!-- Material inline 1 -->
-        <form class="form-check form-check-inline" action="/editar" method="post">
+        <form class="form-check form-check-inline" action="/admin/" method="post">
           <label class="form-check-label" for="materialInline1"><b>Control de opciones:</b></label>
           <input type="checkbox" class="form-check-input" id="materialInline1">
           <label class="form-check-label" for="materialInline1">En proceso</label>
         <!-- Material inline 2 -->
           <input type="checkbox" class="form-check-input" id="materialInline2" name="noAvisar">
-          <label class="form-check-label" for="materialInline2">Aviso a usuarios</label>
+          <label class="form-check-label" for="materialInline2">Desactivar aviso a usuarios</label>
         <!-- Material inline 3 -->
           <input type="checkbox" class="form-check-input" id="materialInline3">
           <label class="form-check-label" for="materialInline3">Ubicacion mal</label>
         <!-- Material inline 4 -->
-          <input type="checkbox" name="solucionada" class="form-check-input" id="materialInline4">
+          <input type="checkbox" name="solucionada" class="form-check-input" id="solucionada" name="solucionada">
           <label class="form-check-label" for="materialInline3">Solucionada</label>
           <input type="submit" value="Submit" ></input>
         </form>
