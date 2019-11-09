@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="css/cliente.css">
+    <link rel="stylesheet" type="text/css" href="/css/cliente.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -14,6 +14,102 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="https://tiles.unwiredmaps.com/js/leaflet-unwired.js"></script>
+    <style>
+    	@font-face {
+    		font-family: tilte-font;
+    		src: url("/fonts/beautymountains.ttf");
+    	}
+
+    	* {
+    		margin: 0;
+    	}
+
+    	body {
+    		background: url("/images/bg.jpg") no-repeat center center fixed;
+    		-webkit-background-size: cover;
+    		-moz-background-size: cover;
+    		-o-background-size: cover;
+    		background-size: cover;
+    	}
+
+    	.title {
+    		font-family: tilte-font, Arial;
+    		font-size:100px;
+    		text-align:center;
+    		margin-top: 2em;
+    	}
+    	h1{
+    		color: rgb(255, 255, 255) !important;
+    	}
+
+    	.footer {
+    		display: flex;
+    		justify-content: space-between;
+    		bottom: 2em;
+    		position: fixed;
+    		width:100%;
+    	}
+
+    	.float-btn {
+    		width:60px;
+    		height:60px;
+    		color:#FFF;
+    		border-radius:50px;
+    		text-align:center;
+    		box-shadow: 2px 2px 3px #999;
+    		margin:auto;
+    	}
+
+    	.mapa {
+    		bottom:2em;
+    		right:2em;
+    		background-color:#009CCC;
+    	}
+
+    	.login {
+    		position:absolute;
+    		top:2em;
+    		right:2em;
+    		color: white;
+    	}
+
+    	.nueva-incidencia {
+    		bottom:2em;
+    		right: 2em;
+    		background-color:#CC1D00;
+    	}
+
+    	.lista {
+    		bottom:2em;
+    		left:2em;
+    		background-color:#36af88;
+    	}
+
+    	.my-float{
+    		margin-top:22px;
+    	}
+    </style>
+    </head>
+    <body>
+    	<a href="/login.html" style="display:none;" id="login-icon" class="login">
+    	<i class="fa fa-2x fa-user"></i>
+    	</a>
+
+    	<h1 class="title">Grillo</h1>
+
+    	<div class="footer">
+    		<a href="/incidencias" class="float-btn lista">
+    		<i class="fa fa-list-ul my-float"></i>
+    		</a>
+
+    		<a href="/crear_incidencia.html" class="float-btn nueva-incidencia">
+    		<i class="fa fa-exclamation-triangle my-float"></i>
+    		</a>
+
+    		<a href="/map" class="float-btn mapa">	<!-- Mapa de todos los puntos de users -->
+    		<i class="fa fa-map my-float"></i>
+    		</a>
+    	</div>
   </head>
   <body>
       <a class="navbar-brand" href="index.html">
