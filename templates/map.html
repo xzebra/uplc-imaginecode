@@ -50,17 +50,17 @@
         "Streets": streets
       }).addTo(map);
       {{range .Lista}}
-      var marker = L.marker([{{.Latitud}}, {{.Longitud}}]).addTo(map);
+      var marker = L.marker([{{.Latitud}}, {{.Longitud}}]).bindPopup({{.Author}}).addTo(map);
       //var marker = L.marker([41.683825, -0.885705]).addTo(map);
-      var popup = L.popup();
+     /* var popup = L.popup();
 
       function onMapClick(e) {
         popup.setLatLng(e.latlng)
-          .setContent("<b>Tipo</b>: {{.Type}} <br> <b>Fecha</b>: {{.Date}} <br> <b>Estado</b>: {{.Estado}}")
+            .setContent("<b>Tipo</b>: {{.Type}} <br> <b>Fecha</b>: {{.Date}} <br> <b>Estado</b>: {{.Estado}}")
           .openOn(map);
         }
 
-        map.on('click', onMapClick);;
+        map.on('click', onMapClick());*/
       {{end}}
     </script>
   </body>
