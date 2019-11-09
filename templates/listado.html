@@ -12,6 +12,10 @@
     b {
       color: white;
     }
+    .scrollable {
+      height:70%;
+      overflow:auto;
+    }
     .home {
       color: white !IMPORTANT;
   		font-size:70px;
@@ -19,7 +23,6 @@
   		margin-top: 0.5em;
       font-family: tilte-font;
   		src: url("/fonts/beautymountains.ttf");
-      overflow: scroll;
      }
 
     </style>
@@ -38,16 +41,18 @@
 			  <th scope="col">Hora</th>
 			</tr>
 		</thead>
-		<tbody>
-			{{ range .Lista }}
-			<tr>
-				<td>{{.Author}}</td>
-				<td>{{.Type}}</td>
-				<td>{{.Desc}}</td>
-				<td>{{.Date}}</td>
-			</tr>
-			{{end}}
-		</tbody>
 	</table>
+  <div class="scrollable">
+    <table>
+      {{range .List}}
+        <tr>
+          <td>{{.Author}}</a></td>
+          <td>{{(.Type}}</td>
+          <td>{{.Desc}}</td>
+          <td>{{.Date}} </td>
+        </tr>
+        {{end}}
+      </table>
+  </div>
 </body>
 </html>
