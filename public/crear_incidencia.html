@@ -34,8 +34,6 @@
       </div>
 
 	  <input type="text" style="display:none;" rows="5" id="author" name="author">
-	  <input type="text" style="display:none;" rows="5" id="lat" name="lat">
-	  <input type="text" style="display:none;" rows="5" id="long" name="long">
 
       <div class="form-group">
         <label for="comment"><b>Descripcion:</b></label>
@@ -45,8 +43,9 @@
       <div class="input-group mb-2">
 
         <div class="custom-file">
-          <input type="file" class="custom-file-input">
-          <label class="custom-file-label" for="inputGroupFile01">Sube un archivo</label>
+          <label onclick="getLocation()" id="lblUbic" class="custom-file-label">Obtener tu ubicación</label>
+		  <input type="text" style="display:none;" rows="5" id="lat" name="lat">
+		  <input type="text" style="display:none;" rows="5" id="long" name="long">
         </div>
       </div>
       <input type="submit" value="Submit" ></input>
@@ -55,8 +54,6 @@
 	<script>
 		function interceptar() {
 			document.getElementById("author").value = getCookie("username");
-			console.log("test");
-			return getLocation();
 		}
 
 		function getCookie(cname) {
@@ -78,18 +75,16 @@
 		function getLocation() {
 		  if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(posCallback);
-			console.log("sudo polla");
-			  return true;
 		  } else {
-			console.log("fail");
-			  return false;
+			document.getElementById("lblUbic").innerHTML = "No se puede acceder a la ubicación";
 		  }
 		}
 
 		function posCallback(position) {
 			document.getElementById("lat").value = position.coords.latitude;
 			document.getElementById("long").value = position.coords.longitude;
-			console.log(position.coords.latitude);
+
+			document.getElementById("lblUbic").innerHTML = position.coords.latitude + ", " + position.coords.longitude;
 		}
 	</script>
   </body>

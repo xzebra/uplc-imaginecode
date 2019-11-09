@@ -21,7 +21,7 @@ type Incidencia struct {
 }
 
 var Estados = []string{
-	"En procesos",
+	"En proceso",
 }
 
 var Tipos = map[string]string{
