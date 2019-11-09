@@ -32,7 +32,7 @@
 
       // Initialize the map
       var map = L.map('map', {
-        center: [long, lat], //map loads with this location as center
+        center: [41.683825, -0.885705], //map loads with this location as center
         zoom: 14,
         layers: [streets] // Show 'streets' by default
       });
@@ -45,17 +45,9 @@
         "Streets": streets
       }).addTo(map);
 //      var marker = L.marker([{{.Ubicacion.Lat}}, {{.Ubicacion.Alt}}]).addTo(map);
-      var marker = L.marker([long, lat]).addTo(map);
+      var marker = L.marker([41.683825, -0.885705]).addTo(map);
 
-      var popup = L.popup();
 
-      function onMapClick(e) {
-        popup.setLatLng(e.latlng)
-          .setContent("<b>Tipo</b>: {{.Type}} <br> <b>Fecha</b>: {{.Date}} <br> <b>Estado</b>: {{.Estado}}")
-          .openOn(map);
-      }
-
-      map.on('click', onMapClick);;
     </script>
 </body>
 </html>

@@ -41,7 +41,15 @@ func main() {
 	}
 
 	fmt.Println("running server")
+
 	http.HandleFunc("/incidencias", handleIncidencias)
+	http.HandleFunc("/map", handleMap)
+
+	http.HandleFunc("/admin", handleAdmin)
+	http.HandleFunc("/admin/incidencias", handleAdminIncidencias)
+	http.HandleFunc("/admin/map", handleAdminMap)
+	http.HandleFunc("/admin/users", handleAdminUsers)
+
 	http.Handle("/", http.FileServer(http.Dir("public")))
 	http.ListenAndServe(":" + os.Getenv("PORT"), nil)
 }
