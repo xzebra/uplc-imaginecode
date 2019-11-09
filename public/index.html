@@ -1,12 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>Grillo</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+	@font-face {
+		font-family: tilte-font;
+		src: url("/fonts/beautymountains.ttf");
+	}
+	
+	* {
+		margin: 0;
+	}
+
+	body {
+		background: url("/images/bg.jpg") no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	.title {
+		font-family: tilte-font, Arial;
+		font-size:100px;
+		text-align:center;
+		margin-top: 2em;
+	}
+
+	.footer {
+		display: flex;
+		justify-content: space-between;
+		bottom: 2em;
+		position: fixed;
+		width:100%;
+	}
+
+	.float-btn {
+		width:60px;
+		height:60px;
+		color:#FFF;
+		border-radius:50px;
+		text-align:center;
+		box-shadow: 2px 2px 3px #999;
+		margin:auto;
+	}
+
+	.mapa {
+		bottom:2em;
+		right:2em;
+		background-color:#009CCC;
+	}
+
+	.nueva-incidencia {
+		bottom:2em;
+		right: 2em;
+		background-color:#CC1D00;
+	}
+
+	.lista {
+		bottom:2em;
+		left:2em;
+		background-color:#36af88;
+	}
+
+	.my-float{
+		margin-top:22px;
+	}
+</style>
 </head>
 <body>
+	<h1 class="title">Grillo</h1>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+	<div class="footer">
+		<a href="#" class="float-btn lista">
+		<i class="fa fa-list-ul my-float"></i>
+		</a>
 
+		<a href="#" class="float-btn nueva-incidencia">
+		<i class="fa fa-exclamation-triangle my-float"></i>
+		</a>
+		
+		<a href="#" class="float-btn mapa">
+		<i class="fa fa-map my-float"></i>
+		</a>
+	</div>
 </body>
 </html>

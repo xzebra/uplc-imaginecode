@@ -5,19 +5,23 @@ import (
 	"context"
 	"net/http"
 	"database/sql"
-	"strconv"
 )
 
 type Incidencia struct {
 	ID int
 	Author string
-	Type int
+	Type string
 	Desc string
 	Ubicacion string
-	Estado int
-	Apoyo string
+	Estado string
+	Apoyo int
 	Date string
 }
+
+var (
+	EstadoDefecto = "En proceso"
+
+)
 
 var Incidencias []Incidencia
 
@@ -57,24 +61,12 @@ func ReadIncidencias() (err error) {
 }
 
 func addIncidencia(w http.ResponseWriter, r *http.Request) {
-	typ, err := strconv.Atoi(r.FormValue("type"))
-	if err != nil {
-		SendError(w, err.Error())
-		return
-	}
-
-	estado, err := strconv.Atoi(r.FormValue("estado"))
-	if err != nil {
-		SendError(w, err.Error())
-		return
-	}
-
 	incid := &Incidencia{
-		Author: r.FormValue("author"), Type: typ,
+		Author: r.FormValue("author"), Type: r.FormValue("type"),
 		Desc: r.FormValue("desc"), Ubicacion: r.FormValue("ubicacion"),
-		Estado:estado, Date: time.Now().String(),
+		Estado: EstadoDefecto, Date: time.Now().String(),
 	}
-	err = incid.Insertar()
+	err := incid.Insertar()
 	if err != nil {
 		SendError(w, err.Error())
 	} else {
