@@ -49,6 +49,7 @@
   background-color: #ff7461;
 }
 
-.form-check {
-  padding-left: 20px !IMPORTANT;
+.form-check-label{
+  margin-left: 0.5em !IMPORTANT;
+  margin-right: 3em !IMPORTANT;
 }
