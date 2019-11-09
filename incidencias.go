@@ -18,10 +18,9 @@ type Incidencia struct {
 	Date string
 }
 
-var (
-	EstadoDefecto = "En proceso"
-
-)
+var Estados = []string{
+	"En procesos",
+}
 
 var Incidencias []Incidencia
 
@@ -45,7 +44,7 @@ func ReadIncidencias() (err error) {
 
 	var cursor *sql.Rows
 	cursor, err = DB.QueryContext(ctx,
-		"SELECT id, autor, tipo, descripcion, ubicacion, estado, apoyo, timestamp FROM incidencias WHERE estado != 0")
+		"SELECT id, autor, tipo, descripcion, ubicacion, estado, apoyo, timestamp FROM incidencias WHERE 1")
 	if err != nil { return err }
 	defer cursor.Close()
 
@@ -64,13 +63,13 @@ func addIncidencia(w http.ResponseWriter, r *http.Request) {
 	incid := &Incidencia{
 		Author: r.FormValue("author"), Type: r.FormValue("type"),
 		Desc: r.FormValue("desc"), Ubicacion: r.FormValue("ubicacion"),
-		Estado: EstadoDefecto, Date: time.Now().String(),
+		Estado: Estados[0], Date: time.Now().Format("Jan 2 3:04pm"),
 	}
 	err := incid.Insertar()
 	if err != nil {
 		SendError(w, err.Error())
 	} else {
-		w.Write([]byte("ok"))
+		listarIncidencias(w, r)
 	}
 }
 
