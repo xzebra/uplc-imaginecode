@@ -3,16 +3,28 @@ package main
 import (
 	"time"
 	"context"
+	"strconv"
 	"net/http"
 	"database/sql"
 )
 
 func handleAdmin(w http.ResponseWriter, r *http.Request) {
-	ServeTemplate(w, "admin.html", struct {
-		Lista []Incidencia
-	}{
-		Lista: Incidencias,
-	})
+	switch r.Method {
+	case "GET":
+		ServeTemplate(w, "admin.html", struct {
+			Lista []Incidencia
+		}{
+			Lista: Incidencias,
+		})
+	case "POST":
+		id, err := strconv.Atoi(r.FormValue("id"))
+		if err != nil { return }
+		solucionada := r.FormValue("solucionada")
+
+		if solucionada == "on" {
+			EliminarIncidencia(id)
+		}
+	}
 }
 
 func handleAdminMap(w http.ResponseWriter, r *http.Request) {	
