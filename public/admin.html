@@ -11,7 +11,6 @@
       <a href="admin.html">HOME</a>
       <a href="subAdmins/users.html">Usuarios</a>
       <a href="subAdmins/incidencias.html">Incidencias</a>
-      <a href="subAdmins/incendios.html">Incendios</a>
       <a href="subAdmins/mapa.html">Mapa </a>
     </div>
 
@@ -19,31 +18,26 @@
     <div class="emergencia">
       <h4 class="alert-heading">EMERGENCY!</h4>
       <p>Que coño ha pasado <br>
-      <a href="mapOne.html"><img src="images/mapIcon.png" width="35em" height="35em"> {{Jorge Manda datos}} </a></p>
+        {{usuario}}<br>
+      <a href="subAdmins/mapOne.html"><img src="images/mapIcon.png" width="35em" height="35em"> {{Jorge Manda datos}} </a></p>
       <hr>
         <!-- Material inline 1 -->
-        <div class="form-check form-check-inline">
+        <form class="form-check form-check-inline" action="/editar" method="post">
           <input type="checkbox" class="form-check-input" id="materialInline1">
           <label class="form-check-label" for="materialInline1">En proceso</label>
-        </div>
-
         <!-- Material inline 2 -->
-        <div class="form-check form-check-inline">
-          <input type="checkbox" class="form-check-input" id="materialInline2">
+          <input type="checkbox" class="form-check-input" id="materialInline2" name="noAvisar">
           <label class="form-check-label" for="materialInline2">Aviso a usuarios</label>
-        </div>
-
         <!-- Material inline 3 -->
-        <div class="form-check form-check-inline">
           <input type="checkbox" class="form-check-input" id="materialInline3">
-          <label class="form-check-label" for="materialInline3">Ubicacion correcta</label>
-        </div>
+          <label class="form-check-label" for="materialInline3">Ubicacion mal</label>
         <!-- Material inline 4 -->
-        <div class="form-check form-check-inline">
-          <input type="checkbox" class="form-check-input" id="materialInline4">
+          <input type="checkbox" name="solucionada" class="form-check-input" id="materialInline4">
           <label class="form-check-label" for="materialInline3">Solucionada</label>
-        </div>
+          <input type="submit" value="Submit" ></input>
+        </form>
     </div>
+
 
     <script src="js\admin.js"></script>
   </body>
