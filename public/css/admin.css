@@ -1,0 +1,36 @@
+/* Style the navbar */
+#navbar {
+ overflow: hidden;
+ background-color: red;
+}
+
+/* Navbar links */
+#navbar a {
+  font-family: "Arial";
+  font-weight: bold;      /*Negrita*/
+ float: left;
+ display: block;
+ /*border: 10px;  */      /*Quiero poner putos bordes*/
+/* border-color: grey;*/
+ color: white;          /*Color de letra*/
+ text-align: center;
+ padding: 26px;         /*Ancho de lo rojo*/
+ text-decoration: none;
+}
+
+/* Page content */
+.content {
+ padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+ position: fixed;
+ top: 0;
+ width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+ padding-top: 60px;
+}
