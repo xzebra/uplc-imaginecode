@@ -57,7 +57,7 @@
       function onMapClick(e) {
         popup.setLatLng(e.latlng)
           .setContent("<b>Tipo</b>: {{.Type}} <br> <b>Fecha</b>: {{.Date}} <br> <b>Estado</b>: {{.Estado}}")
-          .bindPopup("POP").openOn(map);
+          .openOn(map);
         }
 
         map.on('click', onMapClick);;
