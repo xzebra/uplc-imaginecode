@@ -50,7 +50,7 @@
         "Streets": streets
       }).addTo(map);
       {{range .Lista}}
-      var marker = L.marker([{{.Latitud}}, {{.Longitud}}]).bindPopup({{.Author}}).addTo(map));
+      var marker = L.marker([{{.Latitud}}, {{.Longitud}}]).bindPopup({{.Author}}).addTo(map);
       //var marker = L.marker([41.683825, -0.885705]).addTo(map);
      /* var popup = L.popup();
 
