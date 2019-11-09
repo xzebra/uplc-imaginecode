@@ -8,10 +8,10 @@
   </head>
   <body style="background-color:white;">
     <div id="navbar">
-      <a href="admin.html">HOME</a>
-      <a href="subAdmins/users.html">Usuarios</a>
-      <a href="subAdmins/incidencias.html">Incidencias</a>
-      <a href="subAdmins/mapAll.html">Mapa </a>
+      <a href="/">HOME</a>
+      <a href="/users">Usuarios</a>
+      <a href="/incidencias">Incidencias</a>
+      <a href="/mapAdmin">Mapa </a>
     </div>
 
 {{range .Lista}}
@@ -21,7 +21,7 @@
       <p><b>Tipo de incidencia</b>: {{.Type}} <br>
         <b>Usuario</b>: {{.Author}}<br>
         <b>Descripción</b>: {{.Desc}} <br>
-      <a href="subAdmins/mapOne.html"><img src="images/mapIcon.png" width="35em" height="35em"> {{.Ubicacion.Lat}}, {{.Ubicacion.Alt}} </a></p>
+      <a href="/mapOneAdmin?long={{.Longitud}}&lat={{.Latitud}}"><img src="images/mapIcon.png" width="35em" height="35em"> {{.Longitud}}, {{.Latitud}} </a></p>
       <hr>
         <!-- Material inline 1 -->
         <form class="form-check form-check-inline" action="/editar" method="post">
