@@ -3,13 +3,34 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Incidencias</title>
+    <style>
+    b {
+      color: white;
+    }
+    .home {
+      color: white !IMPORTANT;
+  		font-size:70px;
+  		text-align:center;
+  		margin-top: 0.5em;
+      font-family: tilte-font;
+  		src: url("/fonts/beautymountains.ttf");
+      overflow: scroll;
+     }
+
+    </style>
 </head>
-<body>
+<body background="/images/bg.jpg">
+  <div class="home">
+    <a href="/"><img src="/images/escalada.png" width="80" height="90" margin="2"> <b>Grillo</b><a/>
+
+  </div>
 	<table class="table table-hover">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 			  <th scope="col">Autor</th>
 			  <th scope="col">Tipo</th>
@@ -18,7 +39,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{{ range .Lista }}	
+			{{ range .Lista }}
 			<tr>
 				<td>{{.Author}}</td>
 				<td>{{.Type}}</td>

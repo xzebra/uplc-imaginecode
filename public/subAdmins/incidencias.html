@@ -11,7 +11,7 @@
       <a href="../admin.html">HOME</a>
       <a href="users.html">Usuarios</a>
       <a href="incidencias.html">Incidencias</a>
-      <a href="mapa.html">Mapa</a>
+      <a href="mapAll.html">Mapa</a>
     </div>
 
     <table class="table">
@@ -33,7 +33,7 @@
         <td>{{.Author}}</td>
         <td>{{.Apoyo}}</td>
         <td>{{.Desc}}</td>
-        <td><a href="mapOne.html">{{.Ubicacion}}</a></td>
+        <td><a href="mapOne.html">{{.Ubicacion.Lat}}, {{.Ubicacion.Alt}}  </a></td>
         <td>{{.Date}}</td>
         <td>{{.Estado}}</td>
       </tr>

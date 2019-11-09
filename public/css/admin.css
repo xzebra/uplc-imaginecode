@@ -36,7 +36,7 @@
 }
 /*Para meter google maps en la web*/
 
-.map {
+#map {
         height: 500px;  /* Tamaño de mapa */
         width: 100%;  /* The width is the width of the web page */
        }
