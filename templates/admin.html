@@ -13,7 +13,7 @@
       <a href="/admin/incidencias">Incidencias</a>
       <a href="/admin/map">Mapa </a>
     </div>
-
+<div id="noSuperpongas">
 {{range .Lista}}
   {{if .EsGrave}}
     <div class="emergencia">
@@ -42,7 +42,7 @@
     </div>
     {{end}}
 {{end}}
-
+</div>
     <script src="js\admin.js"></script>
   </body>
 </html>
