@@ -34,7 +34,8 @@
       </div>
 
 	  <input type="text" style="display:none;" rows="5" id="author" name="author">
-	  <input type="text" style="display:none;" rows="5" name="ubicacion" value="aqui">
+	  <input type="text" style="display:none;" rows="5" id="lat" name="lat">
+	  <input type="text" style="display:none;" rows="5" id="long" name="long">
 
       <div class="form-group">
         <label for="comment"><b>Descripcion:</b></label>
@@ -54,7 +55,7 @@
 	<script>
 		function interceptar() {
 			document.getElementById("author").value = getCookie("username");
-			return true;
+			return getLocation();
 		}
 
 		function getCookie(cname) {
@@ -73,7 +74,18 @@
 		  return "";
 		}
 
-		function pedirUbicacion() {
+		function getLocation() {
+		  if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(posCallback);
+			  return true;
+		  } else {
+			  return false;
+		  }
+		}
+
+		function posCallback(position) {
+			document.getElementById("lat").value = position.corrds.latitude;
+			document.getElementById("long").value = position.corrds.longitude;
 		}
 	</script>
   </body>
