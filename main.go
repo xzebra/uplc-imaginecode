@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"text/template"
 	"path/filepath"
+//	"github.com/gorilla/sessions"
 )
 
 func ServeTemplate(w http.ResponseWriter, filename string, data interface{}) {
