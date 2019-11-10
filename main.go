@@ -45,7 +45,7 @@ func main() {
 	http.HandleFunc("/incidencias", handleIncidencias)
 	http.HandleFunc("/map", handleMap)
 
-	http.HandleFunc("/admin/", handleAdmin)
+	http.HandleFunc("/admin", handleAdmin)
 	http.HandleFunc("/admin/incidencias", handleAdminIncidencias)
 	http.HandleFunc("/admin/map", handleAdminMap)
 	http.HandleFunc("/admin/users", handleAdminUsers)
