@@ -39,7 +39,7 @@ func comprobarAcceso(w http.ResponseWriter, r *http.Request) bool {
 			return cookie.Value == demoKey
 		}
 	}
-	SendError(w, "Debes estar loggeado para acceder")
+	SendError(w, "Debes estar <a href=\"/login.html\">loggeado</a> para acceder")
 	return false
 }
 
