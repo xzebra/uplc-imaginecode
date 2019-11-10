@@ -2,12 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/cliente.css">
     <style>
     #map {
-            height: 500px;  /* Tamaño de mapa */
+            height: auto;  /* Tamaño de mapa */
             width: 100%;  /* The width is the width of the web page */
    }
    </style>
@@ -41,7 +43,7 @@
 
       // Initialize the map
       var map = L.map('map', {
-        center: [lat, long], //map loads with this location as center
+        center: [41.683825, -0.885705], //map loads with this location as center
         zoom: 14,
         layers: [streets] // Show 'streets' by default
       });
@@ -55,7 +57,7 @@
       }).addTo(map);
       //{{range .Lista}}
     //  var marker = L.marker([{{.Ubicacion.Lat}}, {{.Ubicacion.Alt}}]).addTo(map);
-      var marker = L.marker([lat, long]).addTo(map);
+      var marker = L.marker([41.683825, -0.885705]).addTo(map);
 
 
     //  {{end}}

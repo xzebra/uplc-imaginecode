@@ -8,10 +8,10 @@
   </head>
   <body style="background-color:white;">
     <div id="navbar">
-      <a href="/">HOME</a>
-      <a href="/users">Usuarios</a>
-      <a href="/incidencias">Incidencias</a>
-      <a href="/mapAdmin">Mapa </a>
+      <a href="/admin">HOME</a>
+      <a href="/admin/users">Usuarios</a>
+      <a href="/admin/incidencias">Incidencias</a>
+      <a href="/admin/map">Mapa </a>
     </div>
 
     <table class="table">
@@ -33,7 +33,7 @@
         <td>{{.Author}}</td>
         <td>{{.Apoyo}}</td>
         <td>{{.Desc}}</td>
-        <td><a href="/mapOneAdmin?long={{.Longitud}}&lat={{.Latitud}}">{{.Longitud}}, {{.Latitud}}  </a></td>
+        <td><a href="/mapOne.html?long={{.Longitud}}&lat={{.Latitud}}"><img src="/images/mapIcon.png" width="25" height="25" </a></td>
         <td>{{.Date}}</td>
         <td>{{.Estado}}</td>
       </tr>

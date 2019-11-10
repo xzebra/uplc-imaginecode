@@ -13,10 +13,10 @@
   </head>
   <body style="background-color:white;">
     <div id="navbar">
-      <a href="/">HOME</a>
-      <a href="/users">Usuarios</a>
-      <a href="/incidencias">Incidencias</a>
-      <a href="/mapAdmin">Mapa </a>
+      <a href="/admin">HOME</a>
+      <a href="/admin/users">Usuarios</a>
+      <a href="/admin/incidencias">Incidencias</a>
+      <a href="/admin/map">Mapa </a>
     </div>
 
     <div id="map"></div>
@@ -42,16 +42,8 @@
         "Streets": streets
       }).addTo(map);
       {{range .Lista}}
-      var marker = L.marker([{{.Ubicacion.Lat}}, {{.Ubicacion.Alt}}]).addTo(map);
-      var popup = L.popup();
+      var marker = L.marker([{{.Latitud}}, {{.Longitud}}]).bindPopup("<b>Tipo</b>: {{.Type}} <br> <b>Fecha</b>: {{.Date}} <br> <b>Estado</b>: {{.Estado}}").addTo(map);
 
-      function onMapClick(e) {
-        popup.setLatLng(e.latlng)
-          .setContent("<b>Tipo</b>: {{.Type}} <br> <b>Fecha</b>: {{.Date}} <br> <b>Estado</b>: {{.Estado}}")
-          .openOn(map);
-      }
-
-      map.on('click', onMapClick);;
 
       {{end}}
     </script>

@@ -8,10 +8,10 @@
   </head>
   <body style="background-color:white;">
     <div id="navbar">
-      <a href="/">HOME</a>
-      <a href="/users">Usuarios</a>
-      <a href="/incidencias">Incidencias</a>
-      <a href="/mapAdmin">Mapa </a>
+      <a href="/admin">HOME</a>
+      <a href="/admin/users">Usuarios</a>
+      <a href="/admin/incidencias">Incidencias</a>
+      <a href="/admin/map">Mapa </a>
     </div>
 
 
@@ -22,24 +22,20 @@
       <th scope="col">Mail</th>
       <th scope="col">Incidencias</th>
       <th scope="col">Creación</th>
-      <th scope="col">Urgencia</th>
     </tr>
   </thead>
   <tbody>
     {{ range .Lista }}
     <tr>
-      <td>{{.Name}}</td>
+      <td>{{.Username}}</td>
       <td>{{.Mail}}</td>
-      <td>{{.Incidencia}}</td>
-      <td>{{.Date}}</td>
-      <td>{{.Urgency}}</td>
+      <td>{{.Incidencias}}</td>
+      <td>{{.Fecha}}</td>
     </tr>
     {{end}}
 
   </tbody>
 </table>
-
-
 
 
 

@@ -9,13 +9,17 @@
   font-family: "Arial";
   font-weight: bold;      /*Negrita*/
  float: left;
- display: block;
+ display: flex;
  /*border: 10px;  */      /*Quiero poner putos bordes*/
 /* border-color: grey;*/
  color: white;          /*Color de letra*/
  text-align: center;
  padding: 26px;         /*Ancho de lo rojo*/
  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
 }
 
 /* Page content */
