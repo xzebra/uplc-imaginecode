@@ -6,7 +6,10 @@ import (
 	"net/http"
 	"text/template"
 	"path/filepath"
-//	"github.com/gorilla/sessions"
+)
+
+var (
+	demoKey = "unipalaco"
 )
 
 func ServeTemplate(w http.ResponseWriter, filename string, data interface{}) {
@@ -30,6 +33,16 @@ func SendError(w http.ResponseWriter, err string) {
 	})
 }
 
+func comprobarAcceso(w http.ResponseWriter, r *http.Request) bool {
+	for _, cookie := range r.Cookies() {
+		if cookie.Name == "authKey" {
+			return cookie.Value == demoKey
+		}
+	}
+	SendError(w, "Debes estar loggeado para acceder")
+	return false
+}
+
 func main() {
 	DBInit()
 	defer DB.Close()
@@ -42,6 +55,8 @@ func main() {
 	}
 
 	fmt.Println("running server")
+
+	http.HandleFunc("/crear_incidencia.html", handleCrearIncidencia)
 
 	http.HandleFunc("/incidencias", handleIncidencias)
 	http.HandleFunc("/map", handleMap)

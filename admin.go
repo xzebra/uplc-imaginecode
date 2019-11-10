@@ -9,6 +9,10 @@ import (
 )
 
 func handleAdmin(w http.ResponseWriter, r *http.Request) {
+	if !comprobarAcceso(w, r) {
+		return
+	}
+
 	if r.Method == "POST" {
 		id, err := strconv.Atoi(r.FormValue("id"))
 		if err != nil { return }
@@ -27,6 +31,10 @@ func handleAdmin(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleAdminMap(w http.ResponseWriter, r *http.Request) {	
+	if !comprobarAcceso(w, r) {
+		return
+	}
+
 	ServeTemplate(w, "mapAll.html", struct {
 		Lista []Incidencia
 	}{
@@ -63,6 +71,10 @@ func ReadUsers() (users []User, err error) {
 }
 
 func handleAdminUsers(w http.ResponseWriter, r *http.Request) {
+	if !comprobarAcceso(w, r) {
+		return
+	}
+
 	users, err := ReadUsers()
 	if err != nil { return }
 	
@@ -74,6 +86,10 @@ func handleAdminUsers(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleAdminIncidencias(w http.ResponseWriter, r *http.Request) {
+	if !comprobarAcceso(w, r) {
+		return
+	}
+
 	ServeTemplate(w, "incidencias.html", struct {
 		Lista []Incidencia
 	}{

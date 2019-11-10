@@ -4,6 +4,7 @@ import (
 	"time"
 	"context"
 	"net/http"
+	"path/filepath"
 	"database/sql"
 )
 
@@ -51,6 +52,8 @@ func (i Incidencia) Insertar() error {
 		"INSERT INTO incidencias (id, autor, tipo, descripcion, longitud, latitud, estado, apoyo, timestamp) VALUES (?,?,?,?,?,?,?,?,?)",
 		nil, i.Author, i.Type, i.Desc, i.Longitud, i.Latitud, i.Estado, i.Apoyo, i.Date)
 	if err != nil { return err }
+
+	i.EsGrave = EsGrave[i.Type]
 
 	Incidencias = append(Incidencias, i)
 
@@ -129,6 +132,10 @@ func listarIncidencias(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleIncidencias(w http.ResponseWriter, r *http.Request) {
+	if !comprobarAcceso(w, r) {
+		return
+	}
+
 	switch r.Method {
 	case "GET":
 		listarIncidencias(w, r)
@@ -138,11 +145,23 @@ func handleIncidencias(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleMap(w http.ResponseWriter, r *http.Request) {
+	if !comprobarAcceso(w, r) {
+		return
+	}
+
 	ServeTemplate(w, "map.html", struct {
 		Lista []Incidencia
 	}{
 		Lista: Incidencias,
 	})
+}
+
+func handleCrearIncidencia(w http.ResponseWriter, r *http.Request) {
+	if !comprobarAcceso(w, r) {
+		return
+	}
+
+	http.ServeFile(w, r, filepath.Join("public", "crear_incidencia.html"))
 }
 
 
